@@ -3,6 +3,7 @@ import runloop
 import motor_pair
 from app import display
 import motor
+import time
 
 # declare constants
 ROTATION_TO_CM = 28 #17.2787595947
@@ -51,48 +52,49 @@ async def rightGyro(turnDegree,motorPair):
 async def main():
     motor_pair.pair(motor_pair.PAIR_1, WHEELRIGHTPORT, WHEELLEFTPORT)
 
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-5),800 , 800)
-    #Forward 30
         # write your code here
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-3),800 , 800)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(88),800 , 800)
+    await motor.run_for_degrees(REARATTACHMENTPORT, 1000 , 1000)
+    await motor.run_for_degrees(REARATTACHMENTPORT, -100 , 1000)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-9),800 , 800)
+    await motor.run_for_degrees(REARATTACHMENTPORT, -1000 , 1000)
+    await motor.run_for_degrees(REARATTACHMENTPORT, 100 , 1000)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-6),800 , 800)
+    await motor.run_for_degrees(REARATTACHMENTPORT, 200 , 400)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-25),1000 , 1000)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-25),1000 , 1000)
+    await leftGyro(1100, motor_pair.PAIR_1)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(47),1000 , 1000)
+    await leftGyro(1100, motor_pair.PAIR_1)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(47),1000 , 1000)
+    # await rightGyro(-200, motor_pair.PAIR_1)
+    # await motor.run_for_degrees(REARATTACHMENTPORT, -200 , 400)
 
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(23),1000 , 1000)
-    await rightGyro(-300, motor_pair.PAIR_1)
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(32),200 , 200)
+    # await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-5),800 , 800)
+    # await motor_pair.move_tank_for_degrees(0, convertcmToDegree(29),800 , 800)
+    # await rightGyro(-340, motor_pair.PAIR_1)
+    # await motor_pair.move_tank_for_degrees(0, convertcmToDegree(40),800 , 800)
+    # await leftGyro(400, motor_pair.PAIR_1)
+    # await motor_pair.move_tank_for_degrees(0, convertcmToDegree(24),800 , 800)
+    # await motor.run_for_degrees(REARATTACHMENTPORT, 1000 , 1000)
+    # await motor.run_for_degrees(REARATTACHMENTPORT, -100 , 1000)
+    # await leftGyro(160, motor_pair.PAIR_1)
+    # await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-5),800 , 800)
+    # await motor.run_for_degrees(REARATTACHMENTPORT, -1000 , 1000)
+    # await motor.run_for_degrees(REARATTACHMENTPORT, 100 , 1000)
 
-    await leftGyro(100, motor_pair.PAIR_1)
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(25),200 , 200)
-    # await leftGyro(220, motor_pair.PAIR_1)
-
-    #await rightGyro(-22.5, motor_pair.PAIR_1)
-
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(2), 500 , 500)
-    await rightGyro(-70, motor_pair.PAIR_1)
-
-    await motor.run_for_degrees(FRONTATTACMENTPORT,100,300)
-    await motor.run_for_degrees(FRONTATTACMENTPORT,-75,1000)
-    runloop.sleep_ms(1000)
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-5), 500 , 500)
-    await leftGyro(250, motor_pair.PAIR_1)
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(12 ), 500 , 500)
-    await rightGyro(-100, motor_pair.PAIR_1)
-    await motor.run_for_degrees(FRONTATTACMENTPORT, 500 , 1000)
+"""
     await leftGyro(900, motor_pair.PAIR_1)
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-6), 500 , 500)
-    await motor.run_for_degrees(FRONTATTACMENTPORT, -100 , 1000)
 
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(4), 500 , 500)
-
-
-    await leftGyro(200, motor_pair.PAIR_1)
-
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(53),800 , 800)
+    await rightGyro(-920, motor_pair.PAIR_1)
     await motor.run_for_degrees(FRONTATTACMENTPORT, 1000 , 1000)
-    await motor.run_for_degrees(FRONTATTACMENTPORT, -1000 , 1000)
-    await motor.run_for_degrees(FRONTATTACMENTPORT, 1000 , 1000)
-
-
-
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-15), 500 , 500)
-    await leftGyro(900, motor_pair.PAIR_1)
-    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(100), 1000 , 1000)
-
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(13),400 , 400)
+    await motor.run_for_degrees(FRONTATTACMENTPORT, -500 , 500)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-23),400 , 400)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(10),400 , 400)
+    await leftGyro(850, motor_pair.PAIR_1)
+    await motor_pair.move_tank_for_degrees(0, convertcmToDegree(-65),800 , 800)
+    await motor.run_for_degrees(FRONTATTACMENTPORT, 1000 , 500)"""
 runloop.run(main())
